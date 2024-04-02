@@ -1,10 +1,9 @@
 <script>
 import axios from 'axios';
-import ProjectsList from '../projects/ProjectsList.vue';
-import AppLoader from '../AppLoader.vue';
-import AppAlert from '../AppAlert.vue';
-import BasePagination from '../BasePagination.vue';
-import { store } from '../../data/store';
+import ProjectsList from '../components/projects/ProjectsList.vue';
+import AppAlert from '../components/AppAlert.vue';
+import BasePagination from '../components/BasePagination.vue';
+import { store } from '../data/store';
 
 const defaultEndpoint = 'http://127.0.0.1:8000/api/projects';
 export default {

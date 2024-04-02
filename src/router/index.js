@@ -4,10 +4,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Importo le pagine che mi interessano
-import HomePage from '../components/pages/HomePage.vue';
-import ContactUsPage from '../components/pages/ContactUsPage.vue';
-import NotFoundPage from '../components/pages/NotFoundPage.vue';
-import ProjectDetailPage from "../components/pages/ProjectDetailPage.vue";
+import HomePage from '../pages/HomePage.vue';
+import ContactUsPage from '../pages/ContactUsPage.vue';
+import NotFoundPage from '../pages/NotFoundPage.vue';
+import ProjectDetailPage from "../pages/ProjectDetailPage.vue";
 
 // Definisco le rotte
 const router = createRouter({

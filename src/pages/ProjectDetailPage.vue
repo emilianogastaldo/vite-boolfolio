@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
-import ProjectCard from '../projects/ProjectCard.vue';
-import { store } from '../../data/store';
+import ProjectCard from '../components/projects/ProjectCard.vue';
+import { store } from '../data/store';
 
 const defaultEndpoint = 'http://127.0.0.1:8000/api/projects/';
 

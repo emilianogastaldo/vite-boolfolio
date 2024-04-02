@@ -1,7 +1,10 @@
 <script>
 export default {
     name: 'ProjectCard',
-    props: { project: Object },
+    props: {
+        project: Object,
+        isDetail: Boolean
+    },
     computed: {
         abstract() {
             return this.project.content.slice(0, 400) + '...';
@@ -27,12 +30,19 @@ export default {
 
 <template>
     <div class="card my-4 p-2">
-        <div class="card-body clearfix">
-            <img :src="project.image" class="img-fluid float-start me-4" :alt="project.title">
+        <div class="card-header d-flex align-items-center justify-content-between">
             <div class="card-title d-flex align-items-center gap-3">
                 <h1> {{ project.title }} </h1>
                 <h3><span class="badge text-bg-primary">{{ project.type.label }}</span></h3>
             </div>
+            <RouterLink v-if="!isDetail" class="btn btn-outline-primary"
+                :to="{ name: 'project-detail', params: { id: project.id } }">
+                Vedi
+            </RouterLink>
+
+        </div>
+        <div class="card-body clearfix">
+            <img :src="project.image" class="img-fluid float-start me-4" :alt="project.title">
             <h6 class="card-subtitle mb-4">
                 Tecnologie usate:
                 <span v-for="tech in  project.technologies " class="badge rounded-pill ms-1"

@@ -10,7 +10,7 @@ export default {
 <template>
     <section>
         <div v-if="projects.length">
-            <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+            <ProjectCard v-for="project in projects" :key="project.id" :project="project" :isDetail="false" />
         </div>
         <h4 v-else>Non ci sono progetti</h4>
     </section>

@@ -7,7 +7,7 @@ export default {
 <template>
     <header>
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" href="#">Boolfolio</a>
             </div>
         </nav>

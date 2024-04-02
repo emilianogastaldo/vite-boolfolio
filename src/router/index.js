@@ -17,7 +17,7 @@ const router = createRouter({
     linkExactActiveClass: 'active',
     routes: [
         { path: '/', component: HomePage, name: 'home' },
-        { path: '/projects/:id', component: ProjectDetailPage, name: 'project-detail' },
+        { path: '/projects/:slug', component: ProjectDetailPage, name: 'project-detail' },
         { path: '/contact-us', component: ContactUsPage, name: 'contact-us' },
         { path: '/not-found', component: NotFoundPage, name: 'not-found' },
         { path: '/:patchMatch(.*)*', redirect: 'not-found' }

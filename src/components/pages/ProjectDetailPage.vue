@@ -18,7 +18,7 @@ export default {
     methods: {
         getProject() {
             this.isLoading = true;
-            axios.get(defaultEndpoint + this.$route.params.id)
+            axios.get(defaultEndpoint + this.$route.params.slug)
                 .then(res => {
                     this.project = res.data;
                 })

@@ -36,7 +36,7 @@ export default {
                 <h3><span class="badge text-bg-primary">{{ project.type.label }}</span></h3>
             </div>
             <RouterLink v-if="!isDetail" class="btn btn-outline-primary"
-                :to="{ name: 'project-detail', params: { id: project.id } }">
+                :to="{ name: 'project-detail', params: { slug: project.slug } }">
                 Vedi
             </RouterLink>
 
@@ -50,7 +50,7 @@ export default {
                     {{ tech.label }}
                 </span>
             </h6>
-            <p class="card-text">{{ abstract }}</p>
+            <p class="card-text">{{ isDetail ? project.content : abstract }}</p>
         </div>
         <div class="card-footer text-end">
             <div>Creato il {{ publicationDate }}</div>

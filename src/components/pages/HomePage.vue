@@ -4,6 +4,7 @@ import ProjectsList from '../projects/ProjectsList.vue';
 import AppLoader from '../AppLoader.vue';
 import AppAlert from '../AppAlert.vue';
 import BasePagination from '../BasePagination.vue';
+import { store } from '../../data/store';
 
 const defaultEndpoint = 'http://127.0.0.1:8000/api/projects';
 export default {
@@ -14,13 +15,13 @@ export default {
             data: [],
             links: []
         },
-        isLoading: false,
+        store,
         isAlertOpen: false
     }),
     methods: {
         // posso dare un default scrivendo endpoint = defaultEndpoint
         fetchProjects(endpoint) {
-            this.isLoading = true;
+            store.isLoading = true;
             // Se endpoint è nullo chiamo il dafault
             axios.get(endpoint ?? defaultEndpoint)
                 .then(res => {
@@ -33,7 +34,7 @@ export default {
                     this.isAlertOpen = true;
                 })
                 .then(() => {
-                    this.isLoading = false;
+                    store.isLoading = false;
                 })
         },
         closeErrorAlert() {
@@ -51,9 +52,7 @@ export default {
 <template>
     <AppAlert :show="isAlertOpen" @close="closeErrorAlert" />
     <h1>Progetti</h1>
-    <AppLoader v-if="isLoading" />
-    <div v-else>
-
+    <div v-if="!store.isLoading">
         <ProjectsList :projects="projects.data" />
         <!-- Barra di navigazione -->
         <BasePagination :links="projects.links" @change-page="fetchProjects" />

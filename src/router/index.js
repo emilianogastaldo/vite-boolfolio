@@ -11,10 +11,14 @@ import NotFoundPage from '../components/pages/NotFoundPage.vue';
 // Definisco le rotte
 const router = createRouter({
     history: createWebHistory(),
+    // Con queste gli dico che classi mettere alle rotte attive!
+    linkActiveClass: 'partial-active',
+    linkExactActiveClass: 'active',
     routes: [
-        { path: '/', component: HomePage, },
-        { path: '/contact-us', component: ContactUsPage, },
-        { path: '/:patchMatch(.*)*', component: NotFoundPage, }
+        { path: '/', component: HomePage, name: 'home' },
+        { path: '/contact-us', component: ContactUsPage, name: 'contact-us' },
+        { path: '/not-found', component: NotFoundPage, name: 'not-found' },
+        { path: '/:patchMatch(.*)*', redirect: 'not-found' }
     ]
 });
 

@@ -8,8 +8,7 @@ const defaultEndpoint = 'http://127.0.0.1:8000/api/projects/';
 export default {
     name: 'ProjectDetailPage',
     components: {
-        ProjectCard,
-        AppLoader
+        ProjectCard
     },
     data: () => ({
         project: null,

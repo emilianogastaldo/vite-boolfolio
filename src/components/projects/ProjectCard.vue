@@ -33,7 +33,10 @@ export default {
         <div class="card-header d-flex align-items-center justify-content-between">
             <div class="card-title d-flex align-items-center gap-3">
                 <h1> {{ project.title }} </h1>
-                <h3><span class="badge text-bg-primary">{{ project.type.label }}</span></h3>
+                <h3 v-if="project.type"><span class="badge" :style="{ backgroundColor: project.type.color }">{{
+                    project.type.label
+                }}</span>
+                </h3>
             </div>
             <RouterLink v-if="!isDetail" class="btn btn-outline-primary"
                 :to="{ name: 'project-detail', params: { slug: project.slug } }">
@@ -43,9 +46,9 @@ export default {
         </div>
         <div class="card-body clearfix">
             <img :src="project.image" class="img-fluid float-start me-4" :alt="project.title">
-            <h6 class="card-subtitle mb-4">
+            <h6 v-if="project.technologies.length" class="card-subtitle mb-4">
                 Tecnologie usate:
-                <span v-for="tech in  project.technologies " class="badge rounded-pill ms-1"
+                <span v-for="tech in  project.technologies" :key="tech.id" class="badge rounded-pill ms-1"
                     :class="`text-bg-${tech.color}`">
                     {{ tech.label }}
                 </span>

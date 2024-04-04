@@ -15,14 +15,16 @@ export default {
             let day = date.getDate();
             let month = date.getMonth() + 1;
             const year = date.getFullYear();
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
             const seconds = date.getSeconds();
 
             if (day < 10) day = '0' + day;
             if (month < 10) month = '0' + month;
+            if (hour < 10) hour = '0' + hour;
+            if (minute < 10) minute = '0' + minute;
 
-            return `${day}/${month}/${year} alle ${hours}:${minutes}`;
+            return `${day}/${month}/${year} alle ${hour}:${minute}`;
         }
     }
 }
@@ -56,7 +58,8 @@ export default {
             <p class="card-text">{{ isDetail ? project.content : abstract }}</p>
         </div>
         <div class="card-footer text-end">
-            <div>Creato il {{ publicationDate }}</div>
+            <div>Creato da <em>{{ project.user ? project.user.name : 'Anonimo' }}</em> il {{ publicationDate }}
+            </div>
         </div>
     </div>
 </template>

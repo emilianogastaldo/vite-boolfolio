@@ -1,26 +1,38 @@
 <script>
 import axios from 'axios';
 import { store } from '../data/store';
-
+const endpoint = 'http://127.0.0.1:8000/api/contact-mail/';
 export default {
     name: 'ContactUsPage',
     data: () => ({
         form: {
-            email: '',
+            sender: '',
             subject: '',
             message: ''
         },
-    })
+    }),
+    methods: {
+        sendEmail() {
+            axios.post(endpoint, this.form)
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+                .then(() => { });
+        }
+    }
 }
 </script>
 <template>
     <h2>Contattaci</h2>
-    <form @submit.prevent novalidate>
+    <form @submit.prevent="sendEmail" novalidate>
         <!-- Email -->
         <div class="mb-3">
-            <label for="email" class="form-label">Indirizzo email</label>
-            <input type="email" class="form-control" id="email" placeholder="es: pippo@topolino.com"
-                v-model="form.email">
+            <label for="sender" class="form-label">Indirizzo email</label>
+            <input type="email" class="form-control" id="sender" placeholder="es: pippo@topolino.com"
+                v-model="form.sender">
         </div>
         <!-- Oggetto -->
         <div class="mb-3">

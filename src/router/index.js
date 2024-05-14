@@ -27,7 +27,7 @@ const router = createRouter({
 export { router }
 
 /*
-In caso posso esportare direttamente scrivento:
+In caso posso esportare direttamente scrivendo:
 
 export default createRouter({
     history: createWebHistory(),
@@ -37,6 +37,6 @@ export default createRouter({
     ]
 });
 
-e nel main.js invece del destructoring {router} scrivo importo direttamente router,
+e nel main.js invece del destructoring {router} scrivo import router,
 senza graffe
 */ 
